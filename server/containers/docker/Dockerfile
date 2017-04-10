@@ -17,6 +17,8 @@ FROM ubuntu:16.04
 MAINTAINER KAA IoT PLATFORM <www.kaaproject.org>
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN sed -i "s/archive.ubuntu./mirrors.aliyun./g" /etc/apt/sources.list 
+
 RUN apt-get update && apt-get -yqq install \
 		software-properties-common \
 		python-software-properties \
