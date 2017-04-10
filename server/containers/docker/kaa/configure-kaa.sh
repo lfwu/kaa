@@ -94,7 +94,7 @@ sed -i "s/\(nosql_db_provider_name *= *\).*/\1${NOSQL_PROVIDER_NAME}/" /usr/lib/
 
 # > kaa-node.properties
 [ -n "$TRANSPORT_PUBLIC_INTERFACE" ]  || TRANSPORT_PUBLIC_INTERFACE=`/sbin/ifconfig eth1 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'`
-[ -n "$THRIFT_HOST" ] || THRIFT_HOST=`/sbin/ifconfig eth1 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'`
+[ -n "$THRIFT_HOST" ] || THRIFT_HOST=`/sbin/ifconfig eth0 | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'`
 sed \
   -e "s/\(zk_host_port_list *= *\).*/\1${ZOOKEEPER_NODE_LIST}/" \
   -e "s/\(admin_port *= *\).*/\1${ADMIN_PORT}/" \
